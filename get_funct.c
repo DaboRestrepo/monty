@@ -14,6 +14,7 @@ void get_funct(char **buffer, stack_t **stack, unsigned int line_number)
 		if ((_strcmp(name[i].opcode, buffer[0]) == 0))
 		{
 			name[i].f(stack, line_number);
+			free_grid(buffer);
 		}
 		i++;
 	}

@@ -23,5 +23,6 @@ int main(int argc, char *argv[])
 	}
 	read_line(fd, stack);
 	fclose(fd);
+	free_dlist(stack);
 	return (0);
 }

@@ -43,6 +43,7 @@ void free_grid(char **grid);
 char **token(char *buffer, char *delim);
 int word_counter(char *buffer, char *delim);
 char *_strdup(char *str);
+void free_dlist(stack_t *stack);
 
 /* Check functions */
 void get_funct(char **str, stack_t **stack, unsigned int line_number);

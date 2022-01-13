@@ -19,6 +19,8 @@ void read_line(FILE *fd, stack_t *stack)
 			if (is_digit(str[1]) == -1)
 			{
 				fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+				free(buffer);
+				free_grid(str);
 				exit(EXIT_FAILURE);
 			}
 			data_type = atoi(str[1]);

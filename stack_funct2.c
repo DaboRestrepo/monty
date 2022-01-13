@@ -59,3 +59,19 @@ __attribute__((unused))unsigned int line_number)
 {
 	;
 }
+
+/**
+ * free_dlist - free the list variable.
+ * @stack: the list.
+ */
+void free_dlist(stack_t *stack)
+{
+	stack_t *tmp;
+
+	while (stack != NULL)
+	{
+		tmp = stack->next;
+		free(tmp);
+		stack = tmp;
+	}
+}
