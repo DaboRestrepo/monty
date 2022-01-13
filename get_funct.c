@@ -9,18 +9,14 @@ void get_funct(char **buffer, stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
 
-	while (name[i].opcode != NULL)
+	for (; name[i].opcode != NULL; i++)
 	{
 		if ((_strcmp(name[i].opcode, buffer[0]) == 0))
 		{
 			name[i].f(stack, line_number);
+			return;
 		}
-		i++;
 	}
-	if (name[i].opcode == NULL)
-	{
-		fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_number, buffer[0]);
-		exit(EXIT_FAILURE);
-	}
-	free_grid(buffer);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, buffer[0]);
+	exit(EXIT_FAILURE);
 }

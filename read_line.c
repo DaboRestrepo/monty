@@ -27,6 +27,7 @@ void read_line(FILE *fd, stack_t *stack)
 		}
 		if (str != NULL)
 			get_funct(str, &stack, line_number);
+		free_grid(str);
 	}
 	free(buffer);
 }
