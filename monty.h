@@ -66,11 +66,11 @@ typedef struct instruction_s
 static const instruction_t name[] = {
 	{"push", _push},
 	{"pall", _pall},
-	{"pint", _pint},
+	/*{"pint", _pint},
 	{"pop", _pop},
 	{"add", _add},
 	{"nop", _nop},
-	{"swap", _swap},
+	{"swap", _swap},*/
 	{NULL, NULL},
 };
 

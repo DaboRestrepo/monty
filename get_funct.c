@@ -14,8 +14,13 @@ void get_funct(char **buffer, stack_t **stack, unsigned int line_number)
 		if ((_strcmp(name[i].opcode, buffer[0]) == 0))
 		{
 			name[i].f(stack, line_number);
-			free_grid(buffer);
 		}
 		i++;
 	}
+	if (name[i].opcode == NULL)
+	{
+		fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_number, buffer[0]);
+		exit(EXIT_FAILURE);
+	}
+	free_grid(buffer);
 }

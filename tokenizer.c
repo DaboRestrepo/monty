@@ -27,6 +27,5 @@ char **token(char *buffer, char *delim)
 		pos++;
 	}
 	arg[pos] = NULL;
-	free(buffer);
 	return (arg);
 }
