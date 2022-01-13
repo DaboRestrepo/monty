@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
 
 	if (argc == 0 || argc > 2)
 	{
-		fprintf(stderr, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(argv[1], "r");
 	if (!fd)
 	{
-		fprintf(stderr, "Error: Can't open file <%s>", argv[1]);
+		fprintf(stderr, "Error: Can't open file <%s>\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	read_line(fd, stack);
