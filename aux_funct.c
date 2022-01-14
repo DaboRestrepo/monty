@@ -32,35 +32,6 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * _strdup - Duplicate a string with malloc
- * @str: Pointer to the string.
- * Return: Pointer to the new address.
- */
-
-char *_strdup(char *str)
-{
-	int str_len = 0, i = 0;
-	char *str2 = NULL;
-
-	if (str == NULL)
-	{
-		return (NULL);
-	}
-	str_len = _strlen(str);
-	str2 = malloc(sizeof(char) * (str_len + 1));
-	if (str2 == NULL)
-	{
-		free(str2);
-		return (NULL);
-	}
-	for (i = 0; i < str_len + 1; i++)
-	{
-		str2[i] = str[i];
-	}
-	return (str2);
-}
-
-/**
  * free_grid - Frees the space on memory for the grid
  * @grid: grid
  */
@@ -82,6 +53,8 @@ int is_digit(char *str)
 {
 	int pos = 0;
 
+	if (str[0] == '-')
+			pos++;
 	while (str[pos])
 	{
 		if (!(str[pos] >= 48 && str[pos] <= 57))
