@@ -18,5 +18,7 @@ void get_funct(char *buffer, stack_t **stack, unsigned int line_number)
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, buffer);
+	free(buffer);
+	free_dlist(*stack);
 	exit(EXIT_FAILURE);
 }

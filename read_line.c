@@ -22,6 +22,7 @@ void read_line(FILE *fd, stack_t *stack)
 				if (arg == NULL || (is_digit(arg)) == -1)
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					free(buffer);
 					exit(EXIT_FAILURE);
 				}
 				data_type = atoi(arg);
@@ -29,7 +30,6 @@ void read_line(FILE *fd, stack_t *stack)
 			if (str == NULL || str[0] == '#')
 				continue;
 			get_funct(str, &stack, line_number);
-			/*free(str);*/
 		}
 	}
 	free(buffer);
