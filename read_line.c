@@ -19,7 +19,6 @@ void read_line(FILE *fd, stack_t *stack)
 			if ((_strcmp(str, push)) == 0)
 			{
 				arg = strtok(NULL, "\n\t\r ");
-				printf("%s\n", arg);
 				if (arg == NULL || (is_digit(arg)) == -1)
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_number);
