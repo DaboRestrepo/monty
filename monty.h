@@ -40,9 +40,6 @@ void _swap(stack_t **stack, unsigned int line_number);
 int _strlen(char *c);
 int _strcmp(char *s1, char *s2);
 void free_grid(char **grid);
-char *token(char *buffer, unsigned int line_number);
-int word_counter(char *buffer, char *delim);
-char *_strdup(char *str);
 void free_dlist(stack_t *stack);
 
 /* Check functions */
