@@ -57,7 +57,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 	printf("En el pint\n");
 	if (*stack == NULL)
 	{
-		printf("L<%d>: can't pint, stack empty", line_number);
+		printf("L%d: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -75,7 +75,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 
 	if (head == NULL)
 	{
-		printf("L<%d>: can't pop an empty stack", line_number);
+		printf("L%d: can't pop an empty stack", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = head;
@@ -100,7 +100,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L<%d>: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	tmp = top;

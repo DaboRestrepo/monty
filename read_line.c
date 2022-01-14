@@ -6,31 +6,32 @@
  */
 void read_line(FILE *fd, stack_t *stack)
 {
-	char *buffer = NULL, **str = NULL;
+	char *buffer = NULL, *str = NULL, *push = "push", *arg = NULL;
 	size_t len = 0;
 	unsigned int line_number = 0;
 
 	while ((getline(&buffer, &len, fd)) != -1)
 	{
 		line_number++;
-		str = token(buffer, "\n\t\r ");
-		if (buffer == NULL || buffer[0] == '#' ||
-		buffer[0] == '\n')
-			continue;
-		if (str[1])
-		{
-			if (is_digit(str[1]) == -1)
-			{
-				fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
-				free(buffer);
-				free_grid(str);
-				exit(EXIT_FAILURE);
-			}
-			data_type = atoi(str[1]);
-		}
+		str = strtok(buffer, "\n\t\r ");
 		if (str != NULL)
-			get_funct(str, &stack, line_number);
-		free_grid(str);
+		{
+			if ((_strcmp(str, push)) == 0)
+			{
+				arg = strtok(NULL, "\n\t\r ");
+				if ((is_digit(arg)) == -1)
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					exit(EXIT_FAILURE);
+				}
+				data_type = atoi(arg);
+			}
+			if (str == NULL || str[0] == '#')
+				continue;
+			if (str != NULL)
+				get_funct(str, &stack, line_number);
+			/*free(str);*/
+		}
 	}
 	free(buffer);
 }

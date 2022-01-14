@@ -8,6 +8,9 @@
 #include <unistd.h>
 #include <string.h>
 
+/* Global variable */
+int data_type;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -24,9 +27,6 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-/* Global variable */
-int data_type;
-
 /* Stack and math functions */
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
@@ -40,13 +40,13 @@ void _swap(stack_t **stack, unsigned int line_number);
 int _strlen(char *c);
 int _strcmp(char *s1, char *s2);
 void free_grid(char **grid);
-char **token(char *buffer, char *delim);
+char *token(char *buffer, unsigned int line_number);
 int word_counter(char *buffer, char *delim);
 char *_strdup(char *str);
 void free_dlist(stack_t *stack);
 
 /* Check functions */
-void get_funct(char **str, stack_t **stack, unsigned int line_number);
+void get_funct(char *str, stack_t **stack, unsigned int line_number);
 void read_line(FILE *fd, stack_t *stack);
 int is_digit(char *str);
 /**
@@ -66,11 +66,11 @@ typedef struct instruction_s
 static const instruction_t name[] = {
 	{"push", _push},
 	{"pall", _pall},
-	/*{"pint", _pint},
+	{"pint", _pint},
 	{"pop", _pop},
 	{"add", _add},
 	{"nop", _nop},
-	{"swap", _swap},*/
+	{"swap", _swap},
 	{NULL, NULL},
 };
 
