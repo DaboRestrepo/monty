@@ -14,6 +14,9 @@ void read_line(FILE *fd, stack_t *stack)
 	{
 		line_number++;
 		str = token(buffer, "\n\t\r ");
+		if (buffer == NULL || buffer[0] == '#' ||
+		buffer[0] == '\n')
+			continue;
 		if (str[1])
 		{
 			if (is_digit(str[1]) == -1)
