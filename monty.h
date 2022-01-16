@@ -36,6 +36,7 @@ void _add(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
+void _pchar(stack_t **stack, unsigned int line_number);
 
 /* Auxiliars functions */
 int _strcmp(char *s1, char *s2);
@@ -71,6 +72,7 @@ static const instruction_t name[] = {
 	{"sub", _sub},
 	{"nop", _nop},
 	{"swap", _swap},
+	{"pchar", _pchar},
 	{NULL, NULL},
 };
 
