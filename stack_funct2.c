@@ -27,23 +27,19 @@ void _add(stack_t **stack, unsigned int line_number)
  */
 void _sub(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = *stack;
-	size_t count = 0;
+	stack_t *tmp = NULL;
 	unsigned int sub = 0;
 
-	while (top != NULL)
-	{
-		count++;
-		top = top->next;
-	}
-	if (count < 2)
+	if (!stack || !(*stack) || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	sub -= top->n;
-	_pop(stack, line_number);
-	top->n -= sub;
+	tmp = (*stack)->next;
+	sub = (*stack)->n - tmp->n;
+	free(*stack);
+	*stack = tmp;
+	(*stack)->n = sub;
 }
 /**
  * _nop - Do anything.
