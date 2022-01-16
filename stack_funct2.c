@@ -6,23 +6,19 @@
  */
 void _add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = *stack;
-	size_t count = 0;
+	stack_t *tmp = NULL;
 	unsigned int sum = 0;
 
-	while (top != NULL)
-	{
-		count++;
-		top = top->next;
-	}
-	if (count < 2)
+	if (!stack || !(*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	sum += top->n;
-	_pop(stack, line_number);
-	top->n += sum;
+	tmp = (*stack)->next;
+	sum = (*stack)->n + tmp->n;
+	free(*stack);
+	*stack = tmp;
+	(*stack)->n = sum;
 }
 /**
  * _sub - substract the two top elements.

@@ -22,6 +22,5 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	read_line(fd, stack);
-	/*fclose(fd);*/
 	return (0);
 }
