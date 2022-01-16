@@ -26,9 +26,9 @@ void _push(stack_t **stack, unsigned int line_number)
 	stack_t *top = malloc(sizeof(stack_t));
 	(void)line_number;
 
-	if (top == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		free(top);
 		exit(EXIT_FAILURE);
 	}
@@ -72,9 +72,9 @@ void _pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head = *stack, *temp = NULL;
 
-	if (head == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		printf("L%d: can't pop an empty stack", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = head;

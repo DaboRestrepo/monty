@@ -33,4 +33,5 @@ void read_line(FILE *fd, stack_t *stack)
 		}
 	}
 	free(buffer);
+	fclose(fd);
 }
