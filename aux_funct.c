@@ -1,18 +1,4 @@
 #include "monty.h"
-/**
- * _strlen - Function that returns the lenght of a string.
- * @c: String
- * Return: the result
- */
-
-int _strlen(char *c)
-{
-	int count = 0;
-
-	while (c[count])
-		count++;
-	return (count);
-}
 
 /**
  * _strcmp - Function to compares two strings.

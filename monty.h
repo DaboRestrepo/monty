@@ -37,7 +37,6 @@ void _nop(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
 
 /* Auxiliars functions */
-int _strlen(char *c);
 int _strcmp(char *s1, char *s2);
 void free_grid(char **grid);
 void free_dlist(stack_t *stack);
@@ -46,6 +45,8 @@ void free_dlist(stack_t *stack);
 void get_funct(char *str, stack_t **stack, unsigned int line_number);
 void read_line(FILE *fd, stack_t *stack);
 int is_digit(char *str);
+stack_t *create_node(stack_t **stack, int n);
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
