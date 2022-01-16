@@ -54,7 +54,7 @@ int is_digit(char *str)
 	int pos = 0;
 
 	if (str[0] == '-')
-			pos++;
+		pos++;
 	while (str[pos])
 	{
 		if (!(str[pos] >= 48 && str[pos] <= 57))
