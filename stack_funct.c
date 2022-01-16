@@ -26,7 +26,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	stack_t *top = malloc(sizeof(stack_t));
 	(void)line_number;
 
-	if (stack == NULL || *stack == NULL)
+	if (top == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free(top);
